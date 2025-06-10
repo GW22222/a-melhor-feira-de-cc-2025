@@ -1,0 +1,2376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PremiumCards - Serviços Financeiros Exclusivos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>PremiumCards - Serviços Financeiros Exclusivos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER MODERNIZADO */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #333;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 26px;
+            font-weight: bold;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: #4caf50;
+            margin-left: 5px;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #4caf50;
+        }
+        
+        /* Menu desktop */
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
+        }
+        
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            font-size: 16px;
+        }
+        
+        nav a i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+        
+        nav a:hover {
+            color: #4caf50;
+        }
+        
+        nav a.active {
+            color: #4caf50;
+        }
+        
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #4caf50;
+            border-radius: 2px;
+        }
+        
+        .auth-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .auth-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 15px;
+            border: none;
+        }
+        
+        .login-btn {
+            background: transparent;
+            color: #4caf50;
+            border: 2px solid #4caf50;
+        }
+        
+        .login-btn:hover {
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        .register-btn {
+            background: linear-gradient(90deg, #2e7d32, #4caf50);
+            color: white;
+            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
+        }
+        
+        .register-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+        
+        .user-info:hover {
+            border-color: #4caf50;
+            background: rgba(30, 30, 30, 0.9);
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #4caf50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 18px;
+        }
+        
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .username {
+            font-weight: 600;
+            color: #fff;
+            font-size: 15px;
+        }
+        
+        .logout-btn {
+            color: #aaa;
+            font-size: 13px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .logout-btn:hover {
+            color: #4caf50;
+        }
+        
+        /* Menu mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #ccc;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.2) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(76, 175, 80, 0.15) 0%, transparent 70%);
+            z-index: -1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        
+        .highlight {
+            color: #4caf50;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #aaa;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(90deg, #2e7d32, #4caf50);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(76, 175, 80, 0.4);
+        }
+        
+        .features {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid #333;
+            padding: 30px;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: #4caf50;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        
+        .feature-card p {
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .cards {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .card-item {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+        
+        .card-item:hover {
+            transform: scale(1.03);
+            border-color: #4caf50;
+        }
+        
+        .card-header {
+            padding: 20px;
+            background: rgba(40, 40, 40, 0.9);
+            border-bottom: 1px solid #333;
+        }
+        
+        .card-header h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .card-body {
+            padding: 30px;
+        }
+        
+        .card-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .card-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .card-features li::before {
+            content: '✓';
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .card-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        
+        .card-price span {
+            font-size: 1rem;
+            color: #aaa;
+        }
+        
+        /* Nova seção de cursos */
+        .courses {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-item {
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+            border: 1px solid #333;
+        }
+        
+        .course-item:hover {
+            transform: scale(1.03);
+            border-color: #4caf50;
+        }
+        
+        .course-header {
+            padding: 20px;
+            background: rgba(40, 40, 40, 0.9);
+            border-bottom: 1px solid #333;
+        }
+        
+        .course-header h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .course-body {
+            padding: 30px;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .course-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .course-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .course-features li::before {
+            content: '✓';
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .course-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-align: center;
+            color: #4caf50;
+            margin-bottom: 20px;
+        }
+        
+        .course-price span {
+            font-size: 1rem;
+            color: #aaa;
+        }
+        
+        .testimonials {
+            padding: 80px 0;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid #333;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(76, 175, 80, 0.2);
+            font-family: Georgia, serif;
+        }
+        
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .client {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #333;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4caf50;
+            font-weight: bold;
+        }
+        
+        .client-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        
+        .client-info p {
+            font-style: normal;
+            color: #aaa;
+        }
+        
+        .security {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .security-image {
+            text-align: center;
+        }
+        
+        .security-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .security-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .security-content p {
+            color: #aaa;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            color: #aaa;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(76, 175, 80, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            color: #4caf50;
+            font-size: 1.5rem;
+        }
+        
+        .contact-text h4 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        
+        .contact-text a {
+            color: #4caf50;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .contact-text a:hover {
+            opacity: 0.8;
+        }
+        
+        .contact-form {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid #333;
+        }
+        
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #ccc;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: rgba(20, 20, 20, 0.8);
+            color: #fff;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4caf50;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #aaa;
+            padding: 40px 0 20px;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+            color: #fff;
+        }
+        
+        .footer-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #4caf50;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #4caf50;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .disclaimer {
+            background: rgba(200, 0, 0, 0.2);
+            border: 1px solid rgba(200, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { border-color: rgba(200, 0, 0, 0.5); }
+            50% { border-color: rgba(255, 100, 100, 0.8); }
+            100% { border-color: rgba(200, 0, 0, 0.5); }
+        }
+        
+        /* Seções de autenticação e pagamento */
+        .auth-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .auth-container {
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #4caf50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .auth-tab {
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #aaa;
+            transition: all 0.3s;
+        }
+        
+        .auth-tab.active {
+            color: #4caf50;
+            border-bottom: 2px solid #4caf50;
+            margin-bottom: -1px;
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        .payment-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .payment-container {
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid #4caf50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+        
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .payment-method {
+            background: rgba(40, 40, 40, 0.8);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method:hover, .payment-method.selected {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        .payment-method i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .pix-details {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background: rgba(20, 20, 20, 0.8);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .pix-qrcode {
+            width: 200px;
+            height: 200px;
+            background: #fff;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+        }
+        
+        .pix-key {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: monospace;
+            word-break: break-all;
+        }
+        
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #4caf50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .admin-panel {
+            display: none;
+            background: rgba(20, 20, 20, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border: 1px solid #4caf50;
+        }
+        
+        .admin-panel h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4caf50;
+        }
+        
+        .order-list {
+            max-height: 300px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        
+        .order-item {
+            padding: 10px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .cta-button.small {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+        
+        /* Seção de Vídeo */
+        .video-section {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            color: white;
+        }
+        
+        .video-overlay h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+        
+        .video-overlay p {
+            max-width: 600px;
+            margin-bottom: 25px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .play-button {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(76, 175, 80, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+        }
+        
+        .play-button:hover {
+            transform: scale(1.1);
+            background: rgba(76, 175, 80, 1);
+        }
+        
+        .play-button i {
+            font-size: 2rem;
+            color: white;
+        }
+        
+        /* Seção de Entrega */
+        .delivery-section {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .delivery-container {
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #4caf50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+        
+        .delivery-methods {
+            margin: 30px 0;
+        }
+        
+        .delivery-method {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(40, 40, 40, 0.8);
+            border: 1px solid #333;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .delivery-method:hover, .delivery-method.selected {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+        
+        .delivery-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .whatsapp .delivery-icon {
+            background: #25D366;
+            color: white;
+        }
+        
+        .telegram .delivery-icon {
+            background: #0088cc;
+            color: white;
+        }
+        
+        .delivery-input {
+            margin: 20px 0;
+        }
+        
+        .delivery-input input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+            background: rgba(20, 20, 20, 0.8);
+            color: #fff;
+            font-size: 1rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .security-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            nav ul {
+                gap: 15px;
+            }
+            
+            nav a {
+                font-size: 15px;
+            }
+            
+            .auth-btn {
+                padding: 8px 16px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .user-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 20px 0;
+                gap: 0;
+                border-top: 1px solid #333;
+                border-bottom: 1px solid #333;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                width: 100%;
+            }
+            
+            nav a {
+                padding: 15px 30px;
+                border-bottom: 1px solid #222;
+            }
+            
+            nav a.active::after {
+                height: 100%;
+                width: 4px;
+                left: 0;
+                top: 0;
+            }
+            
+            .auth-container {
+                flex-direction: column;
+                padding: 15px 30px;
+                gap: 10px;
+            }
+            
+            .auth-btn {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .user-info {
+                width: 100%;
+                margin: 0 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .features, .cards, .courses, .testimonials, .security, .contact, .video-section {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .auth-container, .payment-container, .delivery-container {
+                padding: 20px;
+                width: 95%;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+        }/* Novo estilo para o container do vídeo */
+.hero-video-container {
+    background: rgba(20, 20, 20, 0.7);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 30px auto 0;
+    border: 1px solid #333;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.hero-video-container:hover {
+    border-color: #4caf50;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-gem"></i>
+                    Premium<span>Cards</span>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav>
+                    <ul id="navLinks">
+                        <li><a href="#features" class="active"><i class="fas fa-star"></i> Serviços</a></li>
+                        <li><a href="#cards"><i class="fas fa-credit-card"></i> Cartões</a></li>
+                        <li><a href="#courses"><i class="fas fa-graduation-cap"></i> Cursos</a></li>
+                        <li><a href="#testimonials"><i class="fas fa-users"></i> Clientes</a></li>
+                        <li><a href="#video"><i class="fas fa-video"></i> Vídeo</a></li>
+                        <li><a href="#security"><i class="fas fa-shield-alt"></i> Segurança</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> Contato</a></li>
+                        
+                        <!-- Área de autenticação -->
+                        <li class="auth-container" id="authLinks">
+                            <button class="auth-btn login-btn" id="loginBtn">
+                                <i class="fas fa-sign-in-alt"></i> Login
+                            </button>
+                            <button class="auth-btn register-btn" id="registerBtn">
+                                <i class="fas fa-user-plus"></i> Registrar
+                            </button>
+                        </li>
+                        
+                        <!-- Área do usuário logado -->
+                        <li id="userSection" style="display:none;">
+                            <div class="user-info">
+                                <div class="user-avatar" id="userAvatar">U</div>
+                                <div class="user-details">
+                                    <span class="username" id="usernameDisplay">Usuário</span>
+                                    <a href="#" class="logout-btn" id="logoutBtn">Sair</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Acesso a <span class="highlight">Recursos Financeiros Exclusivos</span></h1>
+            <p>Oferecemos soluções discretas para necessidades financeiras urgentes com total segurança e confidencialidade</p>
+            <a href="#cards" class="cta-button">VER CARTÕES DISPONÍVEIS</a>
+        </div>
+    </section>
+          <!-- Vídeo Explicativo -->
+        <div class="hero-video-container">
+            <video 
+                controls 
+                style="
+                    width: 100%;
+                    max-height: 80vh;
+                    border-radius: 10px;
+                    outline: none;
+                    border: 1px solid #333;
+                "
+            >
+                <source src="<iframe width="560" height="315" src="https://www.youtube.com/embed/783w84FQZh0?si=GFHdW4_wV_yTrDlG&amp;start=84" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>" type="video/mp4">
+                
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            
+            <p style="margin-top: 15px; font-size: 16px; color: #aaa; max-width: 600px;">
+                Veja como nossos serviços premium podem resolver suas necessidades financeiras de forma rápida e segura
+            </p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Serviços</h2>
+                <p>Soluções financeiras discretas e eficientes para situações urgentes</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>Cartões Premium</h3>
+                    <p>Acesso a cartões com altos limites e disponibilidade imediata para suas necessidades financeiras.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3>Segurança Máxima</h3>
+                    <p>Transações 100% seguras com criptografia avançada para proteger sua identidade e operações.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Receba seus recursos em até 24 horas após a confirmação, com diversos métodos de entrega.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>Suporte Global</h3>
+                    <p>Atendimento em múltiplos idiomas e suporte 24/7 para resolver qualquer questão que surgir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cards Section -->
+    <section id="cards" class="cards">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Cartões</h2>
+                <p>Escolha a solução que melhor atende às suas necessidades financeiras</p>
+            </div>
+            
+            <div class="disclaimer">
+                <p>⚠️ ATENÇÃO: Este site é apenas para fins educacionais. Não realizamos nenhuma atividade ilegal.</p>
+            </div>
+            
+            <div class="cards-grid">
+                <div class="card-item">
+                    <div class="card-header">
+                        <h3>Cartão Standard</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="card-features">
+                            <li>Limite de R$ 5.000</li>
+                            <li>Validade: 3 meses</li>
+                            <li>Suporte básico</li>
+                            <li>Entrega digital</li>
+                            <li>1 cartão por pedido</li>
+                        </ul>
+                        <div class="card-price">R$ 800 <span>à vista</span></div>
+                        <a href="#" class="cta-button" onclick="startPurchase('Cartão Standard', 800, 'card')">SOLICITAR</a>
+                    </div>
+                </div>
+                
+                <div class="card-item">
+                    <div class="card-header">
+                        <h3>Cartão Gold</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="card-features">
+                            <li>Limite de R$ 15.000</li>
+                            <li>Validade: 6 meses</li>
+                            <li>Suporte prioritário</li>
+                            <li>Entrega física ou digital</li>
+                            <li>2 cartões por pedido</li>
+                            <li>PIN incluso</li>
+                        </ul>
+                        <div class="card-price">R$ 2.000 <span>à vista</span></div>
+                        <a href="#" class="cta-button" onclick="startPurchase('Cartão Gold', 2000, 'card')">SOLICITAR</a>
+                    </div>
+                </div>
+                
+                <div class="card-item">
+                    <div class="card-header">
+                        <h3>Cartão Platinum</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="card-features">
+                            <li>Limite de R$ 50.000+</li>
+                            <li>Validade: 12 meses</li>
+                            <li>Suporte 24/7 VIP</li>
+                            <li>Entrega física expressa</li>
+                            <li>3 cartões por pedido</li>
+                            <li>PIN e documentação</li>
+                            <li>Garantia de substituição</li>
+                        </ul>
+                        <div class="card-price">R$ 5.000 <span>à vista</span></div>
+                        <a href="#" class="cta-button" onclick="startPurchase('Cartão Platinum', 5000, 'card')">SOLICITAR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Cursos Exclusivos</h2>
+                <p>Invista no seu conhecimento com nossos cursos especializados</p>
+            </div>
+            
+            <div class="disclaimer">
+                <p>⚠️ ATENÇÃO: Este site é apenas para fins educacionais. Não realizamos nenhuma atividade ilegal.</p>
+            </div>
+            
+            <div class="courses-grid">
+                <!-- Curso 1 -->
+                <div class="course-item">
+                    <div class="course-header">
+                        <h3>Do Back Mentoria</h3>
+                    </div>
+                    <div class="course-body">
+                        <ul class="course-features">
+                            <li>Aulas ao vivo semanais</li>
+                            <li>Mentoria individual</li>
+                            <li>Materiais exclusivos</li>
+                            <li>Comunidade privada</li>
+                            <li>Suporte 24/7</li>
+                        </ul>
+                        <div class="course-price">R$ 1.200 <span>à vista</span></div>
+                        <a href="#" class="cta-button" onclick="startPurchase('Do Back Mentoria', 1200, 'course')">COMPRAR CURSO</a>
+                    </div>
+                </div>
+                
+                <!-- Curso 2 -->
+                <div class="course-item">
+                    <div class="course-header">
+                        <h3>Como Criar um Modelo de Job</h3>
+                    </div>
+                    <div class="course-body">
+                        <ul class="course-features">
+                            <li>Passo a passo completo</li>
+                            <li>Modelos prontos</li>
+                            <li>Ferramentas essenciais</li>
+                            <li>Suporte para implementação</li>
+                        </ul>
+                        <div class="course-price">R$ 800 <span>à vista</span></div>
+                        <a href="#" class="cta-button" onclick="startPurchase('Modelo de Job', 800, 'course')">COMPRAR CURSO</a>
+                    </div>
+                </div>
+                
+                <!-- Curso 3 -->
+                <div class="course-item">
+                    <div class="course-header">
+                        <h3>Como Clonar CC</h3>
+                    </div>
+                    <div class="course-body">
+                        <ul class="course-features">
+                            <li>Técnicas avançadas</li>
+                            <li>Ferramentas exclusivas</li>
+                            <li>Privacidade garantida</li>
+                            <li>Suporte técnico</li>
+                        </ul>
+                        <div class="course-price">R$ 1.500 <span>à vista</span></div>
+                        <a href="#" class="cta-button" onclick="startPurchase('Como Clonar CC', 1500, 'course')">COMPRAR CURSO</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>O que nossos clientes dizem</h2>
+                <p>Depoimentos de quem já utilizou nossos serviços</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"Serviço rápido e eficiente. Resolveu meu problema financeiro quando mais precisei. Totalmente discreto e confiável."</p>
+                    <div class="client">
+                        <div class="client-avatar">A</div>
+                        <div class="client-info">
+                            <h4>André S.</h4>
+                            <p>São Paulo</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Fiquei impressionado com a qualidade do suporte. Me guiaram em cada etapa e tudo funcionou perfeitamente. Recomendo!"</p>
+                    <div class="client">
+                        <div class="client-avatar">M</div>
+                        <div class="client-info">
+                            <h4>Marcela R.</h4>
+                            <p>Rio de Janeiro</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Precisava de recursos urgentes e em 24 horas já tinha acesso ao cartão. Processo simples e seguro. Voltarei a usar quando necessário."</p>
+                    <div class="client">
+                        <div class="client-avatar">R</div>
+                        <div class="client-info">
+                            <h4>Ricardo F.</h4>
+                            <p>Brasília</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="video-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Como Funciona</h2>
+                <p>Assista ao vídeo explicativo para entender nosso processo</p>
+            </div>
+            
+            <div class="video-container">
+                <video poster="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80">
+                    <source src="#" type="video/mp4">
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <div class="video-overlay">
+                    <h3>Entenda Nosso Processo em 3 Minutos</h3>
+                    <p>Veja como adquirir seu cartão premium de forma segura e rápida</p>
+                    <div class="play-button" id="playButton">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section id="security" class="security">
+        <div class="container">
+            <div class="section-title">
+                <h2>Segurança e Confidencialidade</h2>
+                <p>Nosso compromisso com a sua privacidade e segurança</p>
+            </div>
+            
+            <div class="security-grid">
+                <div class="security-image">
+                    <div style="font-size: 8rem; color: #4caf50;">🔒</div>
+                </div>
+                
+                <div class="security-content">
+                    <h3>Proteção Total</h3>
+                    <p>Utilizamos as mais avançadas tecnologias de criptografia para garantir que todas as suas informações e transações permaneçam completamente seguras e confidenciais.</p>
+                    <p>Nossos sistemas operam através de redes anônimas e protegidas, garantindo que nenhum dado sensível seja comprometido.</p>
+                    <p>Todas as comunicações são criptografadas de ponta a ponta, e não armazenamos nenhuma informação pessoal sensível após a conclusão das transações.</p>
+                    <a href="#contact" class="cta-button">PROTEJA SUAS TRANSAÇÕES</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Entre em Contato</h2>
+                <p>Inicie seu pedido ou tire dúvidas sobre nossos serviços</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <p>Para sua segurança, todas as comunicações devem ser feitas através de nossos canais criptografados.</p>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>Email Seguro</h4>
+                                <a href="#">contato@premiumcards.io</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">🔐</div>
+                            <div class="contact-text">
+                                <h4>Chat Criptografado</h4>
+                                <a href="#">Iniciar conversa segura</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-text">
+                                <h4>Telegram</h4>
+                                <a href="#">@PremiumCardsSupport</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Formulário Seguro</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Nome (opcional)</label>
+                            <input type="text" id="name" placeholder="Como prefere ser chamado">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact">Método de Contato</label>
+                            <select id="contact">
+                                <option value="">Selecione como deseja ser contatado</option>
+                                <option value="email">Email Temporário</option>
+                                <option value="telegram">Telegram</option>
+                                <option value="signal">Signal</option>
+                                <option value="session">Session Messenger</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Serviço de Interesse</label>
+                            <select id="service">
+                                <option value="">Selecione o serviço desejado</option>
+                                <option value="standard">Cartão Standard</option>
+                                <option value="gold">Cartão Gold</option>
+                                <option value="platinum">Cartão Platinum</option>
+                                <option value="course">Cursos</option>
+                                <option value="other">Outro serviço</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem (use linguagem discreta)</label>
+                            <textarea id="message" placeholder="Descreva brevemente sua necessidade..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">ENVIAR MENSAGEM SEGURA</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>PremiumCards</h4>
+                    <p>Serviços financeiros discretos para necessidades urgentes. Operando globalmente com foco em segurança e confidencialidade.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Links Rápidos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Serviços</a></li>
+                        <li><a href="#cards">Cartões</a></li>
+                        <li><a href="#courses">Cursos</a></li>
+                        <li><a href="#testimonials">Depoimentos</a></li>
+                        <li><a href="#security">Segurança</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Recursos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Perguntas Frequentes</a></li>
+                        <li><a href="#">Métodos de Pagamento</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Serviço</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 PremiumCards. Todos os direitos reservados. Este site é apenas para fins educacionais.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Seção de Autenticação -->
+    <section class="auth-section" id="authSection">
+        <div class="auth-container">
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="register">Registrar</div>
+            </div>
+            
+            <form id="loginForm" class="auth-form active">
+                <div class="form-group">
+                    <label for="loginUsername">Usuário</label>
+                    <input type="text" id="loginUsername" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Senha</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                
+                <button type="submit" class="cta-button">ENTRAR</button>
+                <p id="authMessage" style="text-align:center; margin-top:20px; color:#ff5555;"></p>
+            </form>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="form-group">
+                    <label for="registerUsername">Crie um usuário</label>
+                    <input type="text" id="registerUsername" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPassword">Crie uma senha</label>
+                    <input type="password" id="registerPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirme a senha</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                
+                <button type="submit" class="cta-button">REGISTRAR</button>
+                <p id="registerMessage" style="text-align:center; margin-top:20px; color:#ff5555;"></p>
+            </form>
+        </div>
+    </section>
+
+    <!-- Seção de Entrega -->
+    <section class="delivery-section" id="deliverySection">
+        <div class="delivery-container">
+            <h2>Como deseja receber os dados?</h2>
+            <p>Escolha o método de entrega para receber os dados do produto após o pagamento</p>
+            
+            <div class="delivery-methods">
+                <div class="delivery-method whatsapp" onclick="selectDeliveryMethod('whatsapp')">
+                    <div class="delivery-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="delivery-info">
+                        <h4>WhatsApp</h4>
+                        <p>Receba os dados instantaneamente via WhatsApp</p>
+                    </div>
+                </div>
+                
+                <div class="delivery-method telegram" onclick="selectDeliveryMethod('telegram')">
+                    <div class="delivery-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <div class="delivery-info">
+                        <h4>Telegram</h4>
+                        <p>Receba os dados via mensagem direta no Telegram</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="delivery-input" id="whatsappDeliveryInput" style="display:none;">
+                <input type="text" id="whatsappDeliveryNumber" placeholder="Digite seu número com DDD (ex: 11987654321)">
+            </div>
+            
+            <div class="delivery-input" id="telegramDeliveryInput" style="display:none;">
+                <input type="text" id="telegramDeliveryUser" placeholder="Digite seu usuário do Telegram (ex: @usuario)">
+            </div>
+            
+            <button class="cta-button" id="confirmDelivery">CONTINUAR PARA PAGAMENTO</button>
+        </div>
+    </section>
+
+    <!-- Seção de Pagamento -->
+    <section class="payment-section" id="paymentSection">
+        <div class="payment-container">
+            <h2>Finalizar Compra</h2>
+            <p>Produto: <span id="productName"></span></p>
+            <p>Valor: <span id="productPrice"></span></p>
+            
+            <h3>Método de Pagamento</h3>
+            <div class="payment-methods">
+                <div class="payment-method selected" data-method="pix">
+                    <i>PIX</i>
+                    <div>PIX</div>
+                </div>
+            </div>
+            
+            <div class="pix-details" id="pixDetails" style="display:block;">
+                <h3>Pagamento via PIX</h3>
+                <p>Escaneie o QR Code ou utilize a chave PIX abaixo:</p>
+                
+                <div class="pix-qrcode">
+<div style="background:#fff; padding:10px; border-radius:5px; color:#000; text-align:center; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+  <img 
+    src="img/Imagem do WhatsApp de 2025-06-10 à(s) 18.55.03_f5210289.jpg" 
+    alt="Descrição da imagem"
+    style="max-width: 100%; max-height: 100%; object-fit: contain;"
+  >
+</div>
+                    </div>
+                </div>
+                
+                <div class="pix-key" id="pixKey">
+                   2f9670d1-d758-4577-bdb0-5f7f37175488
+                </div>
+                
+                <p>Após o pagamento, clique em confirmar para receber os dados do produto</p>
+                <button class="cta-button" id="confirmPayment">PAGAMENTO REALIZADO</button>
+            </div>
+            
+            <div class="admin-panel" id="adminPanel">
+                <h3>Painel Administrativo</h3>
+                <p>Pedidos pendentes:</p>
+                
+                <div class="order-list" id="orderList">
+                    <!-- Pedidos serão inseridos aqui via JS -->
+                </div>
+                
+                <div class="form-group">
+                    <label for="contactMethod">Enviar dados via:</label>
+                    <select id="contactMethod">
+                        <option value="whatsapp">WhatsApp</option>
+                        <option value="telegram">Telegram</option>
+                    </select>
+                </div>
+                
+                <button class="cta-button" id="sendData">ENVIAR DADOS DO PRODUTO</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Script para menu mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const navLinks = document.getElementById('navLinks');
+            
+            // Menu mobile
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('show');
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('show')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!navLinks.contains(e.target) && !mobileMenuBtn.contains(e.target) && 
+                    navLinks.classList.contains('show')) {
+                    navLinks.classList.remove('show');
+                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                }
+            });
+        });
+
+        // Banco de dados para usuários e pedidos
+        let users = JSON.parse(localStorage.getItem('premiumcards_users')) || {};
+        let orders = JSON.parse(localStorage.getItem('premiumcards_orders')) || [];
+        let currentUser = null;
+        let currentProduct = null;
+        let selectedDeliveryMethod = null;
+        let deliveryContactInfo = '';
+
+        // Elementos DOM
+        const authSection = document.getElementById('authSection');
+        const paymentSection = document.getElementById('paymentSection');
+        const deliverySection = document.getElementById('deliverySection');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const authMessage = document.getElementById('authMessage');
+        const registerMessage = document.getElementById('registerMessage');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const userSection = document.getElementById('userSection');
+        const authLinks = document.getElementById('authLinks');
+        const usernameDisplay = document.getElementById('usernameDisplay');
+        const userAvatar = document.getElementById('userAvatar');
+        const productName = document.getElementById('productName');
+        const productPrice = document.getElementById('productPrice');
+        const pixDetails = document.getElementById('pixDetails');
+        const confirmPayment = document.getElementById('confirmPayment');
+        const confirmDelivery = document.getElementById('confirmDelivery');
+        const adminPanel = document.getElementById('adminPanel');
+        const orderList = document.getElementById('orderList');
+        const sendData = document.getElementById('sendData');
+        const contactMethod = document.getElementById('contactMethod');
+        const playButton = document.getElementById('playButton');
+
+        // Verificar se há usuário logado
+        function checkAuth() {
+            const savedUser = localStorage.getItem('premiumcards_currentUser');
+            if (savedUser) {
+                currentUser = JSON.parse(savedUser);
+                updateUI();
+            }
+        }
+
+        // Atualizar interface com estado de autenticação
+        function updateUI() {
+            if (currentUser) {
+                authLinks.style.display = 'none';
+                userSection.style.display = 'flex';
+                usernameDisplay.textContent = currentUser.username;
+                userAvatar.textContent = currentUser.username.charAt(0).toUpperCase();
+                
+                // Mostrar painel admin se for administrador
+                if (currentUser.username === 'admin') {
+                    adminPanel.style.display = 'block';
+                    loadOrders();
+                }
+            } else {
+                authLinks.style.display = 'block';
+                userSection.style.display = 'none';
+                adminPanel.style.display = 'none';
+            }
+        }
+
+        // Carregar pedidos pendentes
+        function loadOrders() {
+            orderList.innerHTML = '';
+            
+            const pendingOrders = orders.filter(order => order.status === 'pending');
+            
+            if (pendingOrders.length === 0) {
+                orderList.innerHTML = '<p>Nenhum pedido pendente</p>';
+                return;
+            }
+            
+            pendingOrders.forEach((order, index) => {
+                const orderItem = document.createElement('div');
+                orderItem.className = 'order-item';
+                orderItem.innerHTML = `
+                    <div>
+                        <strong>${order.product} (${order.type})</strong><br>
+                        ${order.user} | R$${order.price}
+                    </div>
+                    <div class="order-actions">
+                        <button class="cta-button small" data-index="${index}" data-action="complete">✓</button>
+                        <button class="cta-button small" data-index="${index}" data-action="cancel">✕</button>
+                    </div>
+                `;
+                orderList.appendChild(orderItem);
+            });
+            
+            // Adicionar event listeners aos botões
+            document.querySelectorAll('[data-action="complete"]').forEach(btn => {
+                btn.addEventListener('click', () => completeOrder(btn.dataset.index));
+            });
+            
+            document.querySelectorAll('[data-action="cancel"]').forEach(btn => {
+                btn.addEventListener('click', () => cancelOrder(btn.dataset.index));
+            });
+        }
+
+        // Completar pedido
+        function completeOrder(index) {
+            orders[index].status = 'completed';
+            localStorage.setItem('premiumcards_orders', JSON.stringify(orders));
+            loadOrders();
+            alert(`Pedido de ${orders[index].user} marcado como concluído!`);
+        }
+
+        // Cancelar pedido
+        function cancelOrder(index) {
+            const userName = orders[index].user;
+            orders.splice(index, 1);
+            localStorage.setItem('premiumcards_orders', JSON.stringify(orders));
+            loadOrders();
+            alert(`Pedido de ${userName} cancelado!`);
+        }
+
+        // Login
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (users[username] && users[username].password === password) {
+                currentUser = { username };
+                localStorage.setItem('premiumcards_currentUser', JSON.stringify(currentUser));
+                authSection.style.display = 'none';
+                updateUI();
+                authMessage.textContent = '';
+                
+                // Se havia um produto selecionado antes do login, redirecionar para entrega
+                if (currentProduct) {
+                    deliverySection.style.display = 'flex';
+                }
+            } else {
+                authMessage.textContent = 'Usuário ou senha inválidos';
+            }
+        });
+
+        // Registro
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                registerMessage.textContent = 'As senhas não coincidem';
+                return;
+            }
+            
+            if (users[username]) {
+                registerMessage.textContent = 'Usuário já existe';
+                return;
+            }
+            
+            users[username] = { password };
+            localStorage.setItem('premiumcards_users', JSON.stringify(users));
+            registerMessage.textContent = 'Registro realizado com sucesso!';
+            
+            // Limpar formulário
+            registerForm.reset();
+            
+            // Mudar para aba de login após 2 segundos
+            setTimeout(() => {
+                document.querySelector('[data-tab="login"]').click();
+                registerMessage.textContent = '';
+            }, 2000);
+        });
+
+        // Logout
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            currentUser = null;
+            localStorage.removeItem('premiumcards_currentUser');
+            updateUI();
+            alert('Você saiu da sua conta.');
+        });
+
+        // Tabs de autenticação
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Ativar tab
+                document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Mostrar form correspondente
+                document.querySelectorAll('.auth-form').forEach(form => form.classList.remove('active'));
+                document.getElementById(`${tab.dataset.tab}Form`).classList.add('active');
+                
+                // Limpar mensagens
+                authMessage.textContent = '';
+                registerMessage.textContent = '';
+            });
+        });
+
+        // Abrir login
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            authSection.style.display = 'flex';
+            document.querySelector('[data-tab="login"]').click();
+        });
+
+        // Abrir registro
+        registerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            authSection.style.display = 'flex';
+            document.querySelector('[data-tab="register"]').click();
+        });
+
+        // Fechar modais ao clicar fora
+        [authSection, paymentSection, deliverySection].forEach(section => {
+            section.addEventListener('click', (e) => {
+                if (e.target === section) {
+                    section.style.display = 'none';
+                    currentProduct = null;
+                }
+            });
+        });
+
+        // Selecionar método de entrega
+        function selectDeliveryMethod(method) {
+            selectedDeliveryMethod = method;
+            
+            // Remover seleção anterior
+            document.querySelectorAll('.delivery-method').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Adicionar seleção atual
+            document.querySelector(`.delivery-method.${method}`).classList.add('selected');
+            
+            // Mostrar campo de entrada apropriado
+            document.getElementById('whatsappDeliveryInput').style.display = 'none';
+            document.getElementById('telegramDeliveryInput').style.display = 'none';
+            
+            if (method === 'whatsapp') {
+                document.getElementById('whatsappDeliveryInput').style.display = 'block';
+            } else if (method === 'telegram') {
+                document.getElementById('telegramDeliveryInput').style.display = 'block';
+            }
+        }
+
+        // Confirmar método de entrega
+        confirmDelivery.addEventListener('click', () => {
+            if (!selectedDeliveryMethod) {
+                alert('Por favor, selecione um método de entrega');
+                return;
+            }
+            
+            // Obter informações de contato
+            if (selectedDeliveryMethod === 'whatsapp') {
+                const whatsappNumber = document.getElementById('whatsappDeliveryNumber').value;
+                if (!whatsappNumber) {
+                    alert('Por favor, insira seu número do WhatsApp');
+                    return;
+                }
+                deliveryContactInfo = whatsappNumber;
+            } else if (selectedDeliveryMethod === 'telegram') {
+                const telegramUser = document.getElementById('telegramDeliveryUser').value;
+                if (!telegramUser) {
+                    alert('Por favor, insira seu usuário do Telegram');
+                    return;
+                }
+                deliveryContactInfo = telegramUser;
+            }
+            
+            // Fechar a janela de entrega e abrir a de pagamento
+            deliverySection.style.display = 'none';
+            paymentSection.style.display = 'flex';
+        });
+
+        // Confirmar pagamento
+        confirmPayment.addEventListener('click', () => {
+            if (!currentProduct) return;
+            
+            // Verificar se temos o método de entrega e contato
+            if (!selectedDeliveryMethod || !deliveryContactInfo) {
+                alert('Erro: informações de entrega não encontradas. Por favor, reinicie o processo.');
+                return;
+            }
+            
+            // Criar pedido
+            const newOrder = {
+                id: Date.now(),
+                user: currentUser.username,
+                product: currentProduct.name,
+                price: currentProduct.price,
+                type: currentProduct.type,
+                date: new Date().toISOString(),
+                status: 'pending',
+                contactMethod: selectedDeliveryMethod,
+                contactInfo: deliveryContactInfo
+            };
+            
+            orders.push(newOrder);
+            localStorage.setItem('premiumcards_orders', JSON.stringify(orders));
+            
+            // Simular integração com API do Mercado Pago
+            simulateMercadoPagoIntegration();
+            
+            if (currentProduct.type === 'course') {
+                // Redirecionar para grupo do WhatsApp
+                const whatsappLink = `https://chat.whatsapp.com/91992664276`;
+                alert('Pagamento confirmado! Você será redirecionado para o grupo do WhatsApp.');
+                window.open(whatsappLink, '_blank');
+            } else {
+                alert('Pagamento confirmado! Os dados do cartão serão enviados após aprovação.');
+            }
+            
+            paymentSection.style.display = 'none';
+            
+            // Recarregar pedidos se for admin
+            if (currentUser.username === 'admin') {
+                loadOrders();
+            }
+        });
+
+        // Simular integração com Mercado Pago
+        function simulateMercadoPagoIntegration() {
+            console.log('Simulando integração com Mercado Pago...');
+            console.log('Processando pagamento PIX...');
+            console.log('Pagamento confirmado via Mercado Pago Sandbox');
+        }
+
+        // Enviar dados do produto
+        sendData.addEventListener('click', () => {
+            const method = contactMethod.value;
+            const selectedOrder = orders.find(order => order.status === 'pending');
+            
+            if (!selectedOrder) {
+                alert('Nenhum pedido pendente');
+                return;
+            }
+            
+            if (selectedOrder.type === 'card') {
+                // Gerar dados fictícios do cartão
+                const cardData = {
+                    number: '4'.repeat(4) + ' ' + '5'.repeat(4) + ' ' + '6'.repeat(4) + ' ' + '7'.repeat(4),
+                    expiry: '12/30',
+                    cvv: '123',
+                    holder: 'TITULAR DO CARTÃO',
+                    pin: '1234'
+                };
+                
+                // Simular envio
+                let message = '';
+                if (method === 'whatsapp') {
+                    simulateWhatsAppIntegration(selectedOrder.contactInfo, cardData);
+                    message = `📲 Dados enviados via WhatsApp para ${selectedOrder.contactInfo}`;
+                } else if (method === 'telegram') {
+                    simulateTelegramIntegration(selectedOrder.contactInfo, cardData);
+                    message = `✈️ Dados enviados via Telegram para ${selectedOrder.contactInfo}`;
+                }
+                
+                // Marcar pedido como completado
+                selectedOrder.status = 'completed';
+                localStorage.setItem('premiumcards_orders', JSON.stringify(orders));
+                loadOrders();
+                
+                alert(message);
+            } else if (selectedOrder.type === 'course') {
+                // Para cursos, apenas marcamos como concluído
+                selectedOrder.status = 'completed';
+                localStorage.setItem('premiumcards_orders', JSON.stringify(orders));
+                loadOrders();
+                alert(`✅ Dados do curso enviados para ${selectedOrder.contactInfo}`);
+            }
+        });
+
+        // Simular integração com WhatsApp Business API
+        function simulateWhatsAppIntegration(contact, cardData) {
+            console.log('Simulando integração com WhatsApp Business API...');
+            console.log(`Enviando dados para: ${contact}`);
+            console.log('Dados do produto:', cardData);
+            console.log('Mensagem enviada via API do WhatsApp Business');
+        }
+
+        // Simular integração com Bot do Telegram
+        function simulateTelegramIntegration(contact, cardData) {
+            console.log('Simulando integração com Bot do Telegram...');
+            console.log(`Enviando dados para: ${contact}`);
+            console.log('Dados do produto:', cardData);
+            console.log('Mensagem enviada via API do Telegram Bot');
+        }
+
+        // Função para iniciar compra
+        window.startPurchase = function(name, price, type) {
+            if (!currentUser) {
+                currentProduct = { name, price, type };
+                alert('Por favor, faça login para continuar');
+                authSection.style.display = 'flex';
+                return;
+            }
+            
+            currentProduct = { name, price, type };
+            
+            // Resetar a seleção de entrega
+            selectedDeliveryMethod = null;
+            deliveryContactInfo = '';
+            document.querySelectorAll('.delivery-method').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.getElementById('whatsappDeliveryInput').style.display = 'none';
+            document.getElementById('telegramDeliveryInput').style.display = 'none';
+            document.getElementById('whatsappDeliveryNumber').value = '';
+            document.getElementById('telegramDeliveryUser').value = '';
+            
+            // Mostrar a janela de entrega
+            deliverySection.style.display = 'flex';
+        }
+
+        // Verificar autenticação ao carregar a página
+        window.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            
+            // Criar usuário admin se não existir
+            if (!users.admin) {
+                users.admin = { password: 'admin123' };
+                localStorage.setItem('premiumcards_users', JSON.stringify(users));
+            }
+            
+            // Smooth scrolling para navegação
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Form submission
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Mensagem enviada com sucesso! Entraremos em contato em breve através do método selecionado.');
+                form.reset();
+            });
+            
+            // Botão de play do vídeo
+            playButton.addEventListener('click', function() {
+                alert('Funcionalidade de vídeo ativada! Em um ambiente real, o vídeo seria reproduzido.');
+            });
+        });
+    </script>
+</body>
+</html>
